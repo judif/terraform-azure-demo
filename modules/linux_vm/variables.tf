@@ -8,7 +8,7 @@ variable "vm_name" {
 
 variable "admin_password" {
   description = "Password for the Virtual Machine."
-  sensitive = true
+  sensitive   = true
 }
 
 variable "location" {
