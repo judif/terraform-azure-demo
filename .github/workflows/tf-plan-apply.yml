@@ -59,7 +59,7 @@ jobs:
       id: tf-plan
       run: |
         export exitcode=0
-        terraform plan -detailed-exitcode -no-color -out tfplan || export exitcode=$?
+        terraform plan -detailed-exitcode -no-color -out tfplandev || export exitcode=$?
 
         echo "exitcode=$exitcode" >> $GITHUB_OUTPUT
         
@@ -74,8 +74,8 @@ jobs:
     - name: Publish Terraform Plan
       uses: actions/upload-artifact@v3
       with:
-        name: tfplan
-        path: tfplan
+        name: tfplandev
+        path: tfplandev
         
     # Create string output of Terraform Plan
     - name: Create String Output
@@ -192,7 +192,7 @@ jobs:
       id: tf-plan
       run: |
         export exitcode=0
-        terraform plan -detailed-exitcode -no-color -out tfplan || export exitcode=$?
+        terraform plan -detailed-exitcode -no-color -out tfplanprod || export exitcode=$?
 
         echo "exitcode=$exitcode" >> $GITHUB_OUTPUT
         
@@ -207,8 +207,8 @@ jobs:
     - name: Publish Terraform Plan
       uses: actions/upload-artifact@v3
       with:
-        name: tfplan
-        path: tfplan
+        name: tfplanprod
+        path: tfplanprod
         
     # Create string output of Terraform Plan
     - name: Create String Output
