@@ -10,9 +10,12 @@ permissions:
   statuses: write
 
 jobs:
-  terraform-unit-tests:
+  terraform-unit-tests-dev:
     name: 'Terraform Unit Tests'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./environments/dev
     
     steps:
     # Checkout the repository to the GitHub Actions runner

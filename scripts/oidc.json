@@ -1,0 +1,9 @@
+{
+    "audiences": [
+    "api://AzureADTokenExchange"
+    ],
+    "description": "Main branch OIDC for GHES Azure Terraform Reader app",
+    "issuer": "https://token.actions.githubusercontent.com",
+    "name": "main-oidc",
+    "subject": "repo:judif/terraform-azure-demo:ref:refs/heads/main"
+}
