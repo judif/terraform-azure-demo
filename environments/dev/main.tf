@@ -6,7 +6,7 @@ resource "azurerm_resource_group" "main" {
 
 
 module "vnet_hub_001" {
-  source        = "./modules/vnet"
+  source        = "../../modules/vnet"
   rg_name       = azurerm_resource_group.main.name
   location      = azurerm_resource_group.main.location
   vnet_name     = var.vnet_hub_001
@@ -14,7 +14,7 @@ module "vnet_hub_001" {
 }
 
 module "snet_hub_001_default" {
-  source        = "./modules/subnet"
+  source        = "../../modules/subnet"
   rg_name       = azurerm_resource_group.main.name
   location      = azurerm_resource_group.main.location
   name          = var.snet_default
