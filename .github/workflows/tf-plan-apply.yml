@@ -257,9 +257,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     needs: [terraform-plan-prod]
-    defaults:
-      run:
-        working-directory: ./environments/prod
+    # defaults:
+    #   run:
+    #     working-directory: ./environments/prod
     
     steps:
     # Checkout the repository to the GitHub Actions runner
