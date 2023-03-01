@@ -81,7 +81,7 @@ jobs:
     - name: Create String Output
       id: tf-plan-string
       run: |
-        TERRAFORM_PLAN=$(terraform show -no-color tfplan)
+        TERRAFORM_PLAN=$(terraform show -no-color tfplandev)
         
         delimiter="$(openssl rand -hex 8)"
         echo "summary<<${delimiter}" >> $GITHUB_OUTPUT
@@ -147,11 +147,11 @@ jobs:
     - name: Download Terraform Plan
       uses: actions/download-artifact@v3
       with:
-        name: tfplan
+        name: tfplandev
 
     # Terraform Apply
     - name: Terraform Apply
-      run: terraform apply -auto-approve tfplan
+      run: terraform apply -auto-approve tfplandev
 
 
   terraform-plan-prod:
@@ -214,7 +214,7 @@ jobs:
     - name: Create String Output
       id: tf-plan-string
       run: |
-        TERRAFORM_PLAN=$(terraform show -no-color tfplan)
+        TERRAFORM_PLAN=$(terraform show -no-color tfplanprod)
         
         delimiter="$(openssl rand -hex 8)"
         echo "summary<<${delimiter}" >> $GITHUB_OUTPUT
@@ -278,8 +278,8 @@ jobs:
     - name: Download Terraform Plan
       uses: actions/download-artifact@v3
       with:
-        name: tfplan
+        name: tfplanprod
 
     # Terraform Apply
     - name: Terraform Apply
-      run: terraform apply -auto-approve tfplan
+      run: terraform apply -auto-approve tfplanprod
